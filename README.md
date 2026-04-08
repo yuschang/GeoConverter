@@ -14,14 +14,13 @@ GeoConverter is a desktop application designed for researchers studying marine m
 
 1. [Features](#features)
 2. [Requirements](#requirements)
-3. [Installation](#installation)
-4. [Getting Started](#getting-started)
-5. [User Interface Overview](#user-interface-overview)
-6. [Detailed Usage Guide](#detailed-usage-guide)
-7. [File Formats](#file-formats)
-8. [Camera Parameters](#camera-parameters)
-9. [Troubleshooting](#troubleshooting)
-10. [Citation](#citation)
+3. [Getting Started](#getting-started)
+4. [User Interface Overview](#user-interface-overview)
+5. [Detailed Usage Guide](#detailed-usage-guide)
+6. [File Formats](#file-formats)
+7. [Camera Parameters](#camera-parameters)
+8. [Troubleshooting](#troubleshooting)
+9. [Citation](#citation)
 
 
 ---
@@ -61,31 +60,6 @@ The `drone_geolocator` module must expose the following functions:
 
 - `parse_srt_file(srt_path)` — Parses a DJI-style `.SRT` subtitle file and returns a dictionary keyed by frame number, where each value is a dictionary of metadata fields (latitude, longitude, altitude, gimbal angles, etc.).
 - `convert_tracks_to_geo(tracks_df, srt_data, ...)` — Accepts a DataFrame of pixel-coordinate tracks and SRT metadata, then returns a DataFrame with added `latitude` and `longitude` columns.
-
----
-
-## Installation
-
-1. **Clone this repository:**
-
-```bash
-git clone https://github.com/<your-username>/GeoConverter.git
-cd GeoConverter
-```
-
-2. **Install dependencies:**
-
-```bash
-pip install PyQt5 opencv-python-headless pandas numpy matplotlib
-```
-
-3. **Verify the `drone_geolocator` module** is present in the project directory.
-
-4. **Run the application:**
-
-```bash
-python dolphin_gui_v1.6.2.py
-```
 
 ---
 
