@@ -1,10 +1,10 @@
-# 🐬 Dolphin Track
+# 🐬 GeoConverter (Dolphin Track)
 
 **A PyQt5-based video analysis tool for tracking marine animals from drone footage**
 
 *Developed by Dr. Changsoo Kim*
 
-Dolphin Track is a desktop application designed for researchers studying marine mammals (primarily dolphins) from aerial drone video. It provides frame-by-frame video navigation, manual point tracking, geolocation conversion using drone SRT metadata, and real-time distance measurement — all within a single, integrated interface.
+GeoConverter is a desktop application designed for researchers studying marine mammals (primarily dolphins) from aerial drone video. It provides frame-by-frame video navigation, manual point tracking, geolocation conversion using drone SRT metadata, and real-time distance measurement — all within a single, integrated interface.
 
 > **Current Version:** 1.6.3v_Dist Meas
 
@@ -69,8 +69,8 @@ The `drone_geolocator` module must expose the following functions:
 1. **Clone this repository:**
 
 ```bash
-git clone https://github.com/<your-username>/dolphin-track.git
-cd dolphin-track
+git clone https://github.com/<your-username>/GeoConverter.git
+cd GeoConverter
 ```
 
 2. **Install dependencies:**
@@ -284,7 +284,7 @@ Verify all dependencies are installed. In particular, ensure PyQt5 is compatible
 
 ## Citation
 
-If you use Dolphin Track in your research, please cite the associated publication:
+If you use GeoConverter in your research, please cite the associated publication:
 
 ```
 [Citation details to be added upon publication]
@@ -296,6 +296,6 @@ If you use Dolphin Track in your research, please cite the associated publicatio
 ## Acknowledgments
 This research was supported by the Basic Science Research Program of the Research Institute for Basic Sciences (RIBS) of Jeju National University through the National Research Foundation of Korea (NRF), funded by the Ministry of Education. (2019R1A6A1A10072987). This research was also supported by the Korea Institute of Marine Science and Technology Promotion (KIMST), funded by the Ministry of Oceans and Fisheries (RS−2023−00256122). 
 
-Dolphin Track was developed to support field research on marine mammal behavior from drone-based aerial surveys. We thank all contributors and field researchers who provided feedback during development.
+GeoConverter was developed to support field research on marine mammal behavior from drone-based aerial surveys. We thank all contributors and field researchers who provided feedback during development.
 
 For questions, bug reports, or feature requests, please open an issue on this repository.
