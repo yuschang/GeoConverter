@@ -22,7 +22,7 @@ Dolphin Track is a desktop application designed for researchers studying marine 
 8. [Camera Parameters](#camera-parameters)
 9. [Troubleshooting](#troubleshooting)
 10. [Citation](#citation)
-11. [License](#license)
+
 
 ---
 
@@ -76,12 +76,6 @@ cd dolphin-track
 2. **Install dependencies:**
 
 ```bash
-pip install -r requirements.txt
-```
-
-Or install manually:
-
-```bash
 pip install PyQt5 opencv-python-headless pandas numpy matplotlib
 ```
 
@@ -90,7 +84,7 @@ pip install PyQt5 opencv-python-headless pandas numpy matplotlib
 4. **Run the application:**
 
 ```bash
-python dolphin_track.py
+python dolphin_gui_v1.6.2.py
 ```
 
 ---
@@ -298,13 +292,9 @@ If you use Dolphin Track in your research, please cite the associated publicatio
 
 ---
 
-## License
-
-[Specify your license here, e.g., MIT, GPL-3.0, or a custom academic license]
-
----
 
 ## Acknowledgments
+This research was supported by the Basic Science Research Program of the Research Institute for Basic Sciences (RIBS) of Jeju National University through the National Research Foundation of Korea (NRF), funded by the Ministry of Education. (2019R1A6A1A10072987). This research was also supported by the Korea Institute of Marine Science and Technology Promotion (KIMST), funded by the Ministry of Oceans and Fisheries (RS−2023−00256122). 
 
 Dolphin Track was developed to support field research on marine mammal behavior from drone-based aerial surveys. We thank all contributors and field researchers who provided feedback during development.
 
