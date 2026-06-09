@@ -1,0 +1,77 @@
+# ─── Step 1: Clone YOLO12 and install dependencies ─────────────────────────────
+!git clone https://github.com/sunsmarterjie/yolov12.git
+%cd yolov11
+
+# Install Roboflow + supervision
+!pip install -q roboflow supervision
+
+# (Optional) install flash-attn from PyPI—ensure your CUDA & torch versions match:
+!pip install flash-attn
+
+# Install YOLO12 requirements and the package itself
+!pip install -q -r requirements.txt
+!pip install -q -e .
+
+
+
+# ─── Step 2: Download your Roboflow dataset ────────────────────────────────────
+from roboflow import Roboflow
+import os
+
+# Replace with your Roboflow API key (set via Colab secrets or directly)
+ROBOFLOW_API_KEY = "YOUR_ROBOFLOW_API_KEY"
+
+rf = Roboflow(api_key="****")
+project = rf.workspace("yustchang").project("ship-detecvtion")
+version = project.version(1)
+dataset = version.download("yolov12")
+
+# dataset.location now points to a folder with train/valid/test splits and a data.yaml
+print(f"Dataset downloaded to: {dataset.location}")
+
+
+
+# ─── Step 2b: (Optional) Fix data.yaml if needed ───────────────────────────────
+# Roboflow’s data.yaml may list absolute paths or use different split names.
+# Here’s a quick patch to ensure train/val/test are correct:
+!sed -i '$d' {dataset.location}/data.yaml
+!sed -i '$d' {dataset.location}/data.yaml
+!sed -i '$d' {dataset.location}/data.yaml
+!sed -i '$d' {dataset.location}/data.yaml
+!echo -e "train: ../train/images\nval: ../valid/images\ntest: ../test/images" >> {dataset.location}/data.yaml
+
+
+from ultralytics import YOLO
+
+# Choose your YOLO12 checkpoint: yolov12n.pt, yolov12s.pt, yolov12m.pt, etc.
+CHECKPOINT = "yolov12m.pt"
+
+# Create model instance
+model = YOLO(CHECKPOINT)
+
+# Train with heavier GPU usage:
+results = model.train(
+    data=f"{dataset.location}/data.yaml",
+    epochs=250,
+    imgsz=640,
+
+    # —— GPU / performance params ——
+    # use both GPUs 0 and 1 (or list your GPU IDs)
+    device='0',
+
+    # increase batch size to fill more GPU memory (tune this to your GPU VRAM)
+    batch= 32,
+
+    # number of DataLoader workers for faster I/O
+    workers=8,
+
+    # cache images in RAM for ultra-fast sampling
+    cache=True,
+
+    # mixed-precision training (speeds up FLOPs and reduces memory)
+    amp=True,
+
+    name="roboflow_yolov12_run"
+)
+
+
