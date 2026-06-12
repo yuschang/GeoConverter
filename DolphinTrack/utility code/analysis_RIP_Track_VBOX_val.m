@@ -1,9 +1,8 @@
 clc
 clear all
 
-cd('G:\[Drone_recreational_ship_RNL_project]\analysis')
 
-topFolder = 'G:\[Drone_recreational_ship_RNL_project]\ship_tracking_validation\rip_tracking_validation_backup\DJI_202606041653_001';
+topFolder = 'folderTo\DJI_202606041653_001';
 trackDataList = load_all_track_coordinates(topFolder);
 
 %%
